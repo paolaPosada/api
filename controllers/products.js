@@ -13,7 +13,6 @@ function getProduct (req, res){
 }
 
 function getProducts (req, res){
-  console.log('Holiii');
   Product.find({}, (err, products) =>{
     if (err) return res.status(500).send({message:`Error al realizar la peticion: ${err}`})
     if (!products) return res.status(404).send({message: `No existen productos`})
