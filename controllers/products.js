@@ -3,12 +3,11 @@ const Product = require('../models/products')
 
 function getProduct (req, res){
   let productId = req.params.productId
-
-  Product.findById(productId,(err, product) =>{
+  console.log(productId);
+  Product.findById (productId,(err, product) => {
     if (err) return res.status(500).send({message:`Error al realizar la peticion: ${err}`})
     if (!product) return res.status(404).send({message: `El producto no existe`})
-
-    res.status(200).send({product})
+    res.send(200, {product})
   })
 }
 

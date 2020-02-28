@@ -4,7 +4,7 @@ const app = require('./app')
 //Importar modelo
 
 const port = process.env.PORT || 3001
-mongoose.connect('mongodb+srv://paola:m4irjW5uHQOCL3P9@cluster0-7av5w.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://localhost:27017/shop', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
