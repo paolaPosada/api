@@ -1,10 +1,9 @@
 
 const mongoose = require('mongoose')
 const app = require('./app')
-//Importar modelo
+const config = require('./config')
 
-const port = process.env.PORT || 3001
-mongoose.connect('mongodb://localhost:27017/shop', {
+mongoose.connect(config.db, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -12,8 +11,8 @@ mongoose.connect('mongodb://localhost:27017/shop', {
   })
   .then(() =>{
     console.log("DB connection successful!")
-    app.listen(port, () => {
-      console.log(`API REST corriendo en http://localhost:${port}`);
+    app.listen(config.port, () => {
+      console.log(`API REST corriendo en http://localhost:${config.port}`);
     })}
   )
   .catch(error => {

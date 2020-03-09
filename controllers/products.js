@@ -24,12 +24,9 @@ function saveProduct( req, res){
   console.log(req.body)
 
   let product = new Product()
-  product.name = req.body.name
-  product.picture = req.body.picture
-  product.price = req.body.price
-  product.category = req.body.category
-  product.description = req.body.description
-
+  const {name, picture, price, category, description} = req.body;
+  
+  product = {name, picture, price, category, description}
   product.save((err, productStored) => {
     if(err) res.status(500).send({message: `Error al guardar la base de datos: ${err}`})
     res.status(200).send({product: productStored})
